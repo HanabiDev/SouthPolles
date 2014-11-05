@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 from django.db import models
 
 from polls.models import Person, Poll, Option, Question
