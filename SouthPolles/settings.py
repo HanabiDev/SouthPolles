@@ -20,9 +20,45 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'y&kl5fauo0z1lebgh0_g*@+=0e$qsf()=4%-6-uw8ye1r=ppkz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-TEMPLATE_DEBUG = True
+
+import socket
+if socket.gethostname().startswith('localhost'):
+    DEVEL = True
+else:
+    DEVEL = False
+
+DEBUG = DEVEL
+
+TEMPLATE_DEBUG = DEVEL
+
+if DEVEL:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
+
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, "static"),
+        os.path.join(BASE_DIR, "media/uploads/ads/pos7/images/"),
+    )
+
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': 'southpolls',
+            'USER': 'root',
+            'PASSWORD': 'polls',
+        }
+    }
+
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+
 
 ALLOWED_HOSTS = []
 
@@ -97,5 +133,3 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.request',
 )
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
