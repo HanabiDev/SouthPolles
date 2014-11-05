@@ -17,7 +17,7 @@ def home(request):
 
 	for mun in muns:
 		print mun
-		print mun.nombre
+		print mun.nombre.encode('utf-8')
 
 	request.session.flush()
 	return render_to_response('index.html', request.session)
