@@ -61,7 +61,7 @@ else:
 
 
 
-ALLOWED_HOSTS = ['localhost', '54.69.204.19']
+ALLOWED_HOSTS = ['54.69.204.19', 'localhost:8000']
 
 
 # Application definition
