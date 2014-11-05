@@ -16,7 +16,8 @@ def home(request):
 	muns = Municipio.objects.all()
 
 	for mun in muns:
-		print mun, mun.nombre
+		print mun
+		print mun.nombre
 
 	request.session.flush()
 	return render_to_response('index.html', request.session)
