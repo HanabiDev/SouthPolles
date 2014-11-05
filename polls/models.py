@@ -91,7 +91,7 @@ class Person(models.Model):
 
 
 class Poll(models.Model):
-	title = models.CharField(verbose_name=u'Título', max_length=500, unique=True)
+	title = models.CharField(verbose_name=u'Título', max_length=255, unique=True)
 	#author = models.
 	start_date = models.DateTimeField(verbose_name=u'Fecha de Inicio')
 	end_date = models.DateTimeField(verbose_name=u'Fecha de Finalización')
