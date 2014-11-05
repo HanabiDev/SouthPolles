@@ -1,4 +1,4 @@
-﻿INSERT INTO polls_municipio (id, nombre) VALUES (1, "EL ENCANTO");
+INSERT INTO polls_municipio (id, nombre) VALUES (1, "EL ENCANTO");
 INSERT INTO polls_municipio (id, nombre) VALUES (2, "LA CHORRERA");
 INSERT INTO polls_municipio (id, nombre) VALUES (3, "LA PEDRERA");
 INSERT INTO polls_municipio (id, nombre) VALUES (4, "LA VICTORIA");
