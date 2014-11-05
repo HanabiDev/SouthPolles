@@ -59,9 +59,9 @@ else:
     STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
+DEBUG = True
 
-
-ALLOWED_HOSTS = ['localhost:8000']
+ALLOWED_HOSTS = []
 
 
 # Application definition
