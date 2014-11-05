@@ -5,13 +5,19 @@ from forms import PersonForm
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from models import Application, Answer
-from polls.models import Person, Poll, PollSection, Option
+from polls.models import Person, Poll, PollSection, Option, Municipio
 from django.views.decorators.cache import cache_control
 
 
 # Create your views here.
 
 def home(request):
+
+	muns = Municipio.objects.all()
+
+	for mun in muns:
+		print mun, mun.nombre
+
 	request.session.flush()
 	return render_to_response('index.html', request.session)
 
