@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{%block title%}Inicio{% endblock%}
+{% block content %}
+    
+    <div class="row  pad-top" style="margin-top:200px;">
+
+        <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+            <div class="panel panel-primary text-center">
+                <h1>
+                    Bienvenido!
+                </h1>
+                <div class="panel-body">
+                    <a href="{% url "registry" %}" class="btn btn-lg btn-primary">
+                        Registrarse
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

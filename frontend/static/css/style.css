@@ -1,0 +1,35 @@
+﻿
+/* =============================================================
+   GENERAL STYLES
+ ============================================================ */
+body {
+   font-family: 'Source Sans Pro', sans-serif;
+   background: #FAFAFA;
+}
+
+.pad-top {
+    padding-top:40px;
+}
+
+.form-group{
+	width: 100%;
+}
+
+.form-group select{
+	width: 100%;
+}
+
+.field-info ul{
+	display: inline;
+	list-style: none;
+	padding: 10px;
+}
+
+.field-info li{
+	display: inline;
+}
+
+select{
+	width: 100%;
+}
+

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{%block title%}Elegir una prueba{% endblock%}
+{% block content %}
+
+    <div class="row text-center pad-top ">
+        <div class="col-md-12">
+            <h2>Elija la prueba</h2>
+        </div>
+    </div>
+    <div class="row  pad-top">
+
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Pruebas disponibles
+                    </h3>
+                </div>
+                <form action="{% url "load_poll" %}" method="POST">
+                    {% csrf_token %}
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">    
+                                <select required name="poll_id">
+                                    <option></option>
+                                    {% for poll in polls %}
+                                    <option value="{{poll.id}}">{{ poll.title }}</option>
+                                    {% endfor %}
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="panel-footer text-right">
+                        <a href="{% url "dispose_info" %}" class="btn btn-danger">
+                            Cancelar
+                        </a>
+                        <button class="btn btn-success">
+                            Seleccionar
+                        </button>
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

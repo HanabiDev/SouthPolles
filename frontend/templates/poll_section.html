@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{%block title%}Sección: {{section.text}}{% endblock%}
+{% block content %}
+
+    <div class="row text-center pad-top ">
+        <div class="col-md-12">
+            <h2>{{section.poll.title}}</h2>
+        </div>
+    </div>
+    <div class="row  pad-top">
+
+        <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+            <div class="panel panel-primary">
+                <div class="panel-heading text-center">
+                    <strong>
+                        {{ section.text }}
+                    </strong>  
+                </div>
+
+                <form action="
+                    {% if section_index %}
+                        {% url "save_section" section_index %}
+                    {% else %}
+                        {% url "thanks" %}
+                    {% endif %}" 
+                    method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="application_id" value="{{application.id}}">
+                    
+                    <div class="panel-body">
+                        {% csrf_token %}
+
+                        <div class="row">
+                            <p class="container">Por favor, responde todas las preguntas.</p>
+                            <div class="col-md-10">
+                                {% for question in section.question_set.all %}
+                                    <div class="field-info">
+                                        <b>{{question}}</b> 
+                                        <small class="text-danger">{{field.errors}}</small>
+                                    </div>
+                                    <div class="form-group input-group">
+                                        <select name="section_{{section_index}}_answers" required >
+                                            <option></option>
+                                            {% for option in question.option_set.all %}
+                                                <option value="{{option.id}}">{{option.text}}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-footer text-right">
+                        <a href="{% url "dispose_info" %}" class="btn btn-danger">
+                            Cancelar
+                        </a>
+                        <button class="btn btn-success">
+                            Continuar
+                        </button>
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

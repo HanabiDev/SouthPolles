@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{%block title%}Prueba finalizada{% endblock%}
+{% block content %}
+
+    <div class="row text-center pad-top ">
+        <div class="col-md-12">
+            <h2>Gracias</h2>
+        </div>
+    </div>
+    <div class="row  pad-top">
+
+        <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <strong>La prueba ha finalizado.</strong>
+                </div>
+                <div class="panel-body">
+                    Has finalizado esta prueba, agradecemos tu colaboración. Para salir de esta aplicación presiona "Finalizar".
+                </div>
+                <div class="panel-footer text-right">
+                    <a href="{% url "home" %}" class="btn btn-success">
+                        Finalizar
+                    </a>
+                </div> 
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

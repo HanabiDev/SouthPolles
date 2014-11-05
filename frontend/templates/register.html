@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{%block title%}Registro{% endblock%}
+{% block content %}
+	<div class="row text-center pad-top ">
+        <div class="col-md-12">
+            <h2>Registro</h2>
+        </div>
+    </div>
+    <div class="row  pad-top">
+
+        <div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <strong>
+                        Por favor, registra esta información para continuar.
+                    </strong>  
+                </div>
+                <div class="panel-body">
+                    <form role="form" action="{% url "registry" %}" method="POST">
+                        <br/>
+
+                        {% csrf_token %}
+
+                        {% if form.errors %}
+                            <div class="alert alert-warning alert-dismissible" role="alert">
+                              <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                              Por favor corrige los siguientes errores
+                            </div>
+                        {% endif %}
+
+                        <div class="row">
+                            <div class="col-md-6">
+                            {% for field in form|slice:":8" %}
+                                <div class="field-info">
+                                    <b>{{field.label}}</b> 
+                                    <small class="text-danger">{{field.errors}}</small>
+                                </div>
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-right"  ></i></span>
+                                    {{field}}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-6">
+                            {% for field in form|slice:"8:" %}
+                                <div class="field-info">
+                                    <b>{{field.label}}</b> 
+                                    <small class="text-danger">{{field.errors}}</small>
+                                </div>
+                                <div class="form-group input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-chevron-right"  ></i></span>
+                                    {{field}}
+                                </div>
+                            {% endfor %}
+                        </div>
+                            
+                        </div>
+
+                            <hr>
+                            <div class="form-group">
+                                <input type="checkbox" required style="margin-right:9px;">
+                                <label>
+                                    Acepto los 
+                                    <a href="">
+                                        terminos y condiciones
+                                    </a>
+                                </label>
+                            </div>
+
+                        <hr />
+                        <div class="text-right">
+                            <a href="{% url "home"%}" class="btn btn-danger">Volver</a>
+                            <button class="btn btn-success ">Registrar</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+

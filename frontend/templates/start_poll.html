@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{%block title%}Iniciar prueba: {{application.poll.title}}{% endblock%}
+{% block content %}
+
+    <div class="row text-center pad-top ">
+        <div class="col-md-12">
+            <h2>{{application.poll.title}}</h2>
+        </div>
+    </div>
+    <div class="row  pad-top">
+
+        <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
+            <div class="panel panel-primary">
+                
+
+
+                <form action="{% url "serve_section" 1 %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="application_id" value="{{application.id}}">
+
+                    <div class="panel-body">
+                        <h4>{{ application.poll.description|safe }}</h4>
+                        <hr>
+                        <br>
+                        <div style="font-size:16px !important;">
+                            <h3>Instrucciones</h3>
+                            {{ application.poll.instructions|safe }}
+                        </div>
+                    </div>
+
+                    <div class="panel-footer text-right">
+                        <a href="{% url "dispose_info" %}" class="btn btn-danger">
+                            Cancelar
+                        </a>
+                        <button class="btn btn-success">
+                            Iniciar
+                        </button>
+                    </div> 
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
