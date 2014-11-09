@@ -3,9 +3,7 @@
 from django import forms
 from polls.models import Person
 
-
 from datetimewidget.widgets import DateWidget
-
 
 class PersonForm(forms.ModelForm):
 	class Meta:
@@ -15,6 +13,8 @@ class PersonForm(forms.ModelForm):
 		dateTimeOptions = {
 			'format': 'dd/mm/yyyy',
 			'autoclose': True,
+			'startDate': '01/01/1940',
+			'endDate': '31/12/1998',
 		}
 
 		widgets = {

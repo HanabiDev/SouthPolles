@@ -4,6 +4,19 @@ from django.db import models
 from redactor.fields import RedactorField
 from django.core.validators import MinValueValidator, MaxValueValidator
 
+from django.core.exceptions import ValidationError
+from datetime import date
+from django.template.defaultfilters import date as _date
+
+def validate_birthday(birth_date):
+	min_date = date(1940, 1, 1)
+	max_date = date(1998, 12, 31)
+	if birth_date < min_date or birth_date > max_date:
+		format_min_date = _date(min_date, "d \d\e b \d\e Y")
+		format_max_date = _date(max_date, "d \d\e b \d\e Y")
+		raise ValidationError(u'Sólo fechas entre %s y %s' % (format_min_date, format_max_date))
+
+
 # Create your models here.
 class Municipio(models.Model):
     nombre = models.CharField(max_length=40)
@@ -32,7 +45,7 @@ class Carreer(models.Model):
 		return self.nombre + " - " + self.get_base_display()
 
 class Person(models.Model):
-	CHILDREN = (('S', 'Si'), ('N', 'No'))
+	CHILDREN = ((0, 'Cero'), (1, 'Uno'), (2, 'Dos'), (3, 'Tres'), (4, 'Más de tres'), )
 
 	GENRES = (
 		('M', 'Masculino'),
@@ -52,7 +65,8 @@ class Person(models.Model):
 		('S','Soltero'),
 		('C','Casado'),
 		('D','Divorciado'),
-		('V','Viudo')
+		('V','Viudo'),
+		('U','Unión Libre')
 	)
 
 	ROLES = (
@@ -71,7 +85,7 @@ class Person(models.Model):
 	name = models.CharField(verbose_name=u'Nombre (Opcional)', max_length=300, null=True, blank=True)
 	lastname = models.CharField(verbose_name=u'Apellidos (Opcional)', max_length=300, null=True, blank=True)
 	genre = models.CharField(verbose_name=u'Género', max_length=1, choices=GENRES)
-	birth_date = models.DateField(verbose_name=u'Fecha de nacimiento')
+	birth_date = models.DateField(verbose_name=u'Fecha de nacimiento', validators=[validate_birthday])
 	origin_city = models.ForeignKey(Municipio, verbose_name=u'Ciudad de Origen')
 	actual_city = models.ForeignKey(Municipio,verbose_name=u'Ciudad de Residencia', related_name='residencia')
 	status = models.CharField(verbose_name=u'Estado civil (Opcional)', max_length=1, choices=STATUS, null=True, blank=True)
