@@ -48,7 +48,6 @@ if DEVEL:
     )
 
 else:
-    print 'production'
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',

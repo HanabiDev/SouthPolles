@@ -12,13 +12,6 @@ from django.views.decorators.cache import cache_control
 # Create your views here.
 
 def home(request):
-
-	muns = Municipio.objects.all()
-
-	for mun in muns:
-		print mun
-		print mun.nombre.encode('utf-8')
-
 	request.session.flush()
 	return render_to_response('index.html', request.session)
 
@@ -73,7 +66,6 @@ def serve_section(request, section_id):
 
 	if section_id in request.session['saved_sections']:
 		section_id = request.session['saved_sections'][-1]
-		print section_id
 
 		return redirect(reverse('serve_section', args=(int(section_id)+1,)))
 
@@ -95,12 +87,35 @@ def serve_section(request, section_id):
 		context_instance=RequestContext(request)
 	)
 
-@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+#@cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def save_section(request, section_id):
 
 	application = Application.objects.get(id=request.session['application_id'])
 
 	ids = request.POST.getlist('section_'+section_id+'_answers')
+
+	if section_id == '1':
+		item_4_option = Option.objects.get(question__index=4, index=1)
+		item_5_option = Option.objects.get(question__index=5, index=1)
+
+		if int(ids[3])==item_4_option.id and int(ids[4])==item_5_option.id:
+
+			for option_id in ids:
+				option = Option.objects.get(id=option_id)
+				try:
+					new_answer = Answer.objects.create(application=application, option=option)
+				except Exception, e:
+					pass
+
+			options = Option.objects.filter(question__poll=application.poll, index=1).exclude(id__in=ids)
+
+			for option in options:
+				try:
+					new_answer = Answer.objects.create(application=application, option=option)
+				except Exception, e:
+					pass
+
+			return redirect(reverse('thanks'))
 
 	saved_answers = True
 	for option_id in ids:

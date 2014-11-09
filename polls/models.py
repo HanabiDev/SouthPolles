@@ -45,7 +45,7 @@ class Carreer(models.Model):
 		return self.nombre + " - " + self.get_base_display()
 
 class Person(models.Model):
-	CHILDREN = ((0, 'Cero'), (1, 'Uno'), (2, 'Dos'), (3, 'Tres'), (4, 'Más de tres'), )
+	CHILDREN = (('0', 'Cero'), ('1', 'Uno'), ('2', 'Dos'), ('3', 'Tres'), ('4', 'Más de tres'))
 
 	GENRES = (
 		('M', 'Masculino'),
