@@ -81,13 +81,13 @@
     <script type="text/javascript">
         $(document).ready(function(){
             $("#id_origin_dept").change(function(){
-                $.get( "{% url "filter_cities" %}", {dept_id: $(this).val()}, function( data ) {
+                $.get( "{% url "get_cities" %}", {dept_id: $(this).val()}, function( data ) {
                   $("#id_origin_city").html(data).trigger("chosen:updated");
                 });
             });
 
             $("#id_actual_dept").change(function(){
-                $.get( "{% url "filter_cities" %}", {dept_id: $(this).val()}, function( data ) {
+                $.get( "{% url "get_cities" %}", {dept_id: $(this).val()}, function( data ) {
                   $("#id_actual_city").html(data).trigger("chosen:updated");
                 });
             });
