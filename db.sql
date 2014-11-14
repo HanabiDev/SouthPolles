@@ -1,156 +1,3 @@
-INSERT INTO frontend_answer VALUES(1,1,1);
-INSERT INTO frontend_answer VALUES(2,1,4);
-INSERT INTO frontend_answer VALUES(3,1,7);
-INSERT INTO frontend_answer VALUES(4,1,10);
-INSERT INTO frontend_answer VALUES(5,1,13);
-INSERT INTO frontend_answer VALUES(6,1,16);
-INSERT INTO frontend_answer VALUES(7,1,19);
-INSERT INTO frontend_answer VALUES(8,1,22);
-INSERT INTO frontend_answer VALUES(9,1,25);
-INSERT INTO frontend_answer VALUES(10,1,28);
-INSERT INTO frontend_answer VALUES(11,1,31);
-INSERT INTO frontend_answer VALUES(12,1,34);
-INSERT INTO frontend_answer VALUES(13,1,37);
-INSERT INTO frontend_answer VALUES(14,1,40);
-INSERT INTO frontend_answer VALUES(15,1,43);
-INSERT INTO frontend_answer VALUES(16,1,52);
-INSERT INTO frontend_answer VALUES(17,1,55);
-INSERT INTO frontend_answer VALUES(18,1,58);
-INSERT INTO frontend_answer VALUES(19,1,61);
-INSERT INTO frontend_answer VALUES(20,1,46);
-INSERT INTO frontend_answer VALUES(21,1,49);
-INSERT INTO frontend_answer VALUES(22,2,2);
-INSERT INTO frontend_answer VALUES(23,2,5);
-INSERT INTO frontend_answer VALUES(24,2,8);
-INSERT INTO frontend_answer VALUES(25,2,12);
-INSERT INTO frontend_answer VALUES(26,2,15);
-INSERT INTO frontend_answer VALUES(27,2,18);
-INSERT INTO frontend_answer VALUES(28,2,20);
-INSERT INTO frontend_answer VALUES(29,2,22);
-INSERT INTO frontend_answer VALUES(30,2,26);
-INSERT INTO frontend_answer VALUES(31,2,29);
-INSERT INTO frontend_answer VALUES(32,2,32);
-INSERT INTO frontend_answer VALUES(33,2,35);
-INSERT INTO frontend_answer VALUES(34,2,38);
-INSERT INTO frontend_answer VALUES(35,2,41);
-INSERT INTO frontend_answer VALUES(36,2,44);
-INSERT INTO frontend_answer VALUES(37,2,53);
-INSERT INTO frontend_answer VALUES(38,2,56);
-INSERT INTO frontend_answer VALUES(39,2,59);
-INSERT INTO frontend_answer VALUES(40,2,61);
-INSERT INTO frontend_answer VALUES(41,2,48);
-INSERT INTO frontend_answer VALUES(42,2,50);
-INSERT INTO frontend_answer VALUES(43,3,1);
-INSERT INTO frontend_answer VALUES(44,3,4);
-INSERT INTO frontend_answer VALUES(45,3,7);
-INSERT INTO frontend_answer VALUES(46,3,11);
-INSERT INTO frontend_answer VALUES(47,3,14);
-INSERT INTO frontend_answer VALUES(48,3,17);
-INSERT INTO frontend_answer VALUES(49,3,20);
-INSERT INTO frontend_answer VALUES(50,3,22);
-INSERT INTO frontend_answer VALUES(51,3,26);
-INSERT INTO frontend_answer VALUES(52,3,29);
-INSERT INTO frontend_answer VALUES(53,3,32);
-INSERT INTO frontend_answer VALUES(54,3,35);
-INSERT INTO frontend_answer VALUES(55,3,38);
-INSERT INTO frontend_answer VALUES(56,3,42);
-INSERT INTO frontend_answer VALUES(57,3,44);
-INSERT INTO frontend_answer VALUES(58,3,54);
-INSERT INTO frontend_answer VALUES(59,3,56);
-INSERT INTO frontend_answer VALUES(60,3,59);
-INSERT INTO frontend_answer VALUES(61,3,63);
-INSERT INTO frontend_answer VALUES(62,3,48);
-INSERT INTO frontend_answer VALUES(63,3,50);
-INSERT INTO frontend_answer VALUES(64,4,1);
-INSERT INTO frontend_answer VALUES(65,4,4);
-INSERT INTO frontend_answer VALUES(66,4,7);
-INSERT INTO frontend_answer VALUES(67,4,10);
-INSERT INTO frontend_answer VALUES(68,4,13);
-INSERT INTO frontend_answer VALUES(69,4,16);
-INSERT INTO frontend_answer VALUES(70,4,19);
-INSERT INTO frontend_answer VALUES(71,4,22);
-INSERT INTO frontend_answer VALUES(72,4,25);
-INSERT INTO frontend_answer VALUES(73,4,28);
-INSERT INTO frontend_answer VALUES(74,4,31);
-INSERT INTO frontend_answer VALUES(75,4,34);
-INSERT INTO frontend_answer VALUES(76,4,37);
-INSERT INTO frontend_answer VALUES(77,4,40);
-INSERT INTO frontend_answer VALUES(78,4,43);
-INSERT INTO frontend_answer VALUES(79,4,52);
-INSERT INTO frontend_answer VALUES(80,4,55);
-INSERT INTO frontend_answer VALUES(81,4,58);
-INSERT INTO frontend_answer VALUES(82,4,61);
-INSERT INTO frontend_answer VALUES(83,4,46);
-INSERT INTO frontend_answer VALUES(84,4,49);
-INSERT INTO frontend_answer VALUES(85,5,2);
-INSERT INTO frontend_answer VALUES(86,5,5);
-INSERT INTO frontend_answer VALUES(87,5,8);
-INSERT INTO frontend_answer VALUES(88,5,11);
-INSERT INTO frontend_answer VALUES(89,5,14);
-INSERT INTO frontend_answer VALUES(90,5,16);
-INSERT INTO frontend_answer VALUES(91,5,19);
-INSERT INTO frontend_answer VALUES(92,5,22);
-INSERT INTO frontend_answer VALUES(93,5,25);
-INSERT INTO frontend_answer VALUES(94,5,28);
-INSERT INTO frontend_answer VALUES(95,5,31);
-INSERT INTO frontend_answer VALUES(96,5,34);
-INSERT INTO frontend_answer VALUES(97,5,37);
-INSERT INTO frontend_answer VALUES(98,5,40);
-INSERT INTO frontend_answer VALUES(99,5,43);
-INSERT INTO frontend_answer VALUES(100,6,1);
-INSERT INTO frontend_answer VALUES(101,6,4);
-INSERT INTO frontend_answer VALUES(102,6,7);
-INSERT INTO frontend_answer VALUES(103,6,10);
-INSERT INTO frontend_answer VALUES(104,6,13);
-INSERT INTO frontend_answer VALUES(105,6,16);
-INSERT INTO frontend_answer VALUES(106,6,19);
-INSERT INTO frontend_answer VALUES(107,6,22);
-INSERT INTO frontend_answer VALUES(108,6,25);
-INSERT INTO frontend_answer VALUES(109,6,28);
-INSERT INTO frontend_answer VALUES(110,6,31);
-INSERT INTO frontend_answer VALUES(111,6,34);
-INSERT INTO frontend_answer VALUES(112,6,37);
-INSERT INTO frontend_answer VALUES(113,6,40);
-INSERT INTO frontend_answer VALUES(114,6,43);
-INSERT INTO frontend_answer VALUES(115,6,52);
-INSERT INTO frontend_answer VALUES(116,6,55);
-INSERT INTO frontend_answer VALUES(117,6,58);
-INSERT INTO frontend_answer VALUES(118,6,61);
-INSERT INTO frontend_answer VALUES(119,6,46);
-INSERT INTO frontend_answer VALUES(120,6,49);
-INSERT INTO frontend_answer VALUES(121,7,2);
-INSERT INTO frontend_answer VALUES(122,7,6);
-INSERT INTO frontend_answer VALUES(123,7,8);
-INSERT INTO frontend_answer VALUES(124,7,12);
-INSERT INTO frontend_answer VALUES(125,7,15);
-INSERT INTO frontend_answer VALUES(126,7,17);
-INSERT INTO frontend_answer VALUES(127,7,20);
-INSERT INTO frontend_answer VALUES(128,7,24);
-INSERT INTO frontend_answer VALUES(129,7,26);
-INSERT INTO frontend_answer VALUES(130,7,30);
-INSERT INTO frontend_answer VALUES(131,7,32);
-INSERT INTO frontend_answer VALUES(132,7,35);
-INSERT INTO frontend_answer VALUES(133,7,38);
-INSERT INTO frontend_answer VALUES(134,7,42);
-INSERT INTO frontend_answer VALUES(135,7,44);
-INSERT INTO frontend_answer VALUES(136,7,53);
-INSERT INTO frontend_answer VALUES(137,7,56);
-INSERT INTO frontend_answer VALUES(138,7,60);
-INSERT INTO frontend_answer VALUES(139,7,62);
-
-
-
-
-INSERT INTO frontend_application VALUES(1,1,1,'2014-11-09 06:45:32');
-INSERT INTO frontend_application VALUES(2,2,1,'2014-11-09 16:34:51');
-INSERT INTO frontend_application VALUES(3,3,1,'2014-11-10 13:50:20');
-INSERT INTO frontend_application VALUES(4,4,1,'2014-11-10 14:48:23');
-INSERT INTO frontend_application VALUES(5,5,1,'2014-11-10 14:52:09');
-INSERT INTO frontend_application VALUES(6,6,1,'2014-11-10 22:19:55');
-INSERT INTO frontend_application VALUES(7,7,1,'2014-11-10 22:21:29');
-
-
-
 INSERT INTO polls_carreer VALUES(1,'Administración de Empresas','T');
 INSERT INTO polls_carreer VALUES(2,'Administración de Empresas','C');
 INSERT INTO polls_carreer VALUES(3,'Administración de Empresas','S');
@@ -1353,6 +1200,37 @@ INSERT INTO polls_municipio VALUES(1111,'PUERTO CARREÑO',32);
 INSERT INTO polls_municipio VALUES(1112,'SANTA ROSALIA',32);
 
 
+INSERT INTO polls_poll VALUES(1,'Escala de Ideación Suicida','2014-10-31 01:44:47','2014-10-31 02:33:03','<p style="text-align: center;"><strong>(Beck Scale for Suicide Ideation, BSSI, Beck, Kovacs y Wasserman, 1979)</strong><strong></strong></p><p style="text-align: center;">(Traducción y adaptación de C. Vázquez)</p>','<p>Seleccione una de las opciones para cada pregunta. Una vez elegida su respuesta presione el botón "Continuar" para almacenar la respuesta y continuar con la siguiente.</p>');
+
+INSERT INTO polls_pollsection VALUES(1,'I. CARACTERÍSTICAS DE ACTITUDES HACIA VIVIR/MORIR',1,1);
+INSERT INTO polls_pollsection VALUES(2,'II. CARACTERÍSTICAS DEL DESEO/IDEACION DE SUICIDIO',2,1);
+INSERT INTO polls_pollsection VALUES(3,'III. CARACTERÍSTICAS DEL INTENTO EN CUESTIÓN',3,1);
+INSERT INTO polls_pollsection VALUES(4,'IV. ACTUALIZACIÓN DEL INTENTO EN CUESTIÓN',4,1);
+INSERT INTO polls_pollsection VALUES(5,'V. FACTORES PREVIOS (no incluibles en la puntuación total)',5,1);
+
+
+INSERT INTO polls_question VALUES(2,'Deseo de vivir',1,'Elija una de las opciones y presione "Continuar".',1,1);
+INSERT INTO polls_question VALUES(3,'Deseo de morir',2,'Elija una de las opciones y presione "Continuar".',1,1);
+INSERT INTO polls_question VALUES(4,'Razones para vivir/morir',3,'Elija una de las opciones y presione "Continuar".',1,1);
+INSERT INTO polls_question VALUES(5,'Deseo de efectuar un intento activo de suicidio',4,'Elija una de las opciones y presione "Continuar".',1,1);
+INSERT INTO polls_question VALUES(6,'Intento pasivo de suicidio',5,'Elija una de las opciones y presione "Continuar".',1,1);
+INSERT INTO polls_question VALUES(7,'Dimensión temporal: Duración',6,'Elija una de las opciones y presione "Continuar".',1,2);
+INSERT INTO polls_question VALUES(8,'Dimensión temporal: frecuencia',7,'Elija una de las opciones y presione "Continuar".',1,2);
+INSERT INTO polls_question VALUES(9,'Actitud hacia la ideación/deseo',8,'Elija una de las opciones y presione "Continuar".',1,2);
+INSERT INTO polls_question VALUES(10,'Control sobre el deseo de actuación o acto suicida',9,'Elija una de las opciones y presione "Continuar".',1,2);
+INSERT INTO polls_question VALUES(11,'Barreras para el intento activo (por ejemplo: la familia, religión, posibilidad de lesión grave si se fracasa; irreversibilidad del intento)',10,'Elija una de las opciones y presione "Continuar".',1,2);
+INSERT INTO polls_question VALUES(12,'Razón del intento en cuestión',11,'Elija una de las opciones y presione "Continuar".',1,2);
+INSERT INTO polls_question VALUES(13,'Método: Especificidad/planeación',12,'Elija una de las opciones y presione "Continuar".',1,3);
+INSERT INTO polls_question VALUES(14,'Método: Disponibilidad/oportunidad',13,'Elija una de las opciones y presione "Continuar".',1,3);
+INSERT INTO polls_question VALUES(15,'Sensación de «capacidad» para llevar a cabo un intento',14,'Elija una de las opciones y presione "Continuar".',1,3);
+INSERT INTO polls_question VALUES(16,'Expectativas/anticipación del intento real',15,'Elija una de las opciones y presione "Continuar".',1,3);
+INSERT INTO polls_question VALUES(17,'Preparación real',16,'Elija una de las opciones y presione "Continuar".',1,4);
+INSERT INTO polls_question VALUES(18,'Nota de suicidio',17,'Elija una de las opciones y presione "Continuar".',1,4);
+INSERT INTO polls_question VALUES(19,'Actos finales de anticipación de la muerte (por ejemplo: seguros, testamento, donaciones)',18,'Elija una de las opciones y presione "Continuar".',1,4);
+INSERT INTO polls_question VALUES(20,'Engaño/encubrimiento del engaño',19,'Elija una de las opciones y presione "Continuar".',1,4);
+INSERT INTO polls_question VALUES(21,'Intentos previos de suicidio',20,'Elija una de las opciones y presione "Continuar".',1,5);
+INSERT INTO polls_question VALUES(22,'Intención de morir asociada con el último intento',21,'Elija una de las opciones y presione "Continuar".',1,5);
+
 
 
 INSERT INTO polls_option VALUES(1,'0: Moderado a fuerte',1,2);
@@ -1418,47 +1296,3 @@ INSERT INTO polls_option VALUES(60,'2: Planes finales efectuados o gestiones fin
 INSERT INTO polls_option VALUES(61,'0: Ideas expresadas abiertamente',1,20);
 INSERT INTO polls_option VALUES(62,'1: Ideas reservadas',2,20);
 INSERT INTO polls_option VALUES(63,'2: Intento de engañar, mentir, encubrir',3,20);
-
-
-
-
-INSERT INTO polls_person VALUES(1,'Juan','Gomez','M','1991-10-22','S','0','',2,'A',9,'','T',321,26,269,6,6);
-INSERT INTO polls_person VALUES(2,'a','a','M','1998-12-16','U','2','a',2,'D',1,'0000','D',3,5,2,1,1);
-INSERT INTO polls_person VALUES(3,'diana mayerly','wilches soler','F','1988-08-20',NULL,'1','catolico',3,'A',7,'200923119','T',321,26,321,6,6);
-INSERT INTO polls_person VALUES(4,'','','F','1996-09-03',NULL,NULL,'',2,NULL,3,'','T',4,1,2,1,1);
-INSERT INTO polls_person VALUES(5,'','','M','1990-03-11',NULL,NULL,'',2,NULL,4,'','T',321,7,312,6,6);
-INSERT INTO polls_person VALUES(6,'','','M','1988-12-15',NULL,NULL,'',2,NULL,5,'','D',321,5,321,6,6);
-INSERT INTO polls_person VALUES(7,'','','F','1988-12-17',NULL,NULL,'',2,NULL,4,'','D',244,5,244,6,6);
-
-
-INSERT INTO polls_poll VALUES(1,'Escala de Ideación Suicida','2014-10-31 01:44:47','2014-10-31 02:33:03','<p style="text-align: center;"><strong>(Beck Scale for Suicide Ideation, BSSI, Beck, Kovacs y Wasserman, 1979)</strong><strong></strong></p><p style="text-align: center;">(Traducción y adaptación de C. Vázquez)</p>','<p>Seleccione una de las opciones para cada pregunta. Una vez elegida su respuesta presione el botón "Continuar" para almacenar la respuesta y continuar con la siguiente.</p>');
-
-INSERT INTO polls_pollsection VALUES(1,'I. CARACTERÍSTICAS DE ACTITUDES HACIA VIVIR/MORIR',1,1);
-INSERT INTO polls_pollsection VALUES(2,'II. CARACTERÍSTICAS DEL DESEO/IDEACION DE SUICIDIO',2,1);
-INSERT INTO polls_pollsection VALUES(3,'III. CARACTERÍSTICAS DEL INTENTO EN CUESTIÓN',3,1);
-INSERT INTO polls_pollsection VALUES(4,'IV. ACTUALIZACIÓN DEL INTENTO EN CUESTIÓN',4,1);
-INSERT INTO polls_pollsection VALUES(5,'V. FACTORES PREVIOS (no incluibles en la puntuación total)',5,1);
-
-
-INSERT INTO polls_question VALUES(2,'Deseo de vivir',1,'Elija una de las opciones y presione "Continuar".',1,1);
-INSERT INTO polls_question VALUES(3,'Deseo de morir',2,'Elija una de las opciones y presione "Continuar".',1,1);
-INSERT INTO polls_question VALUES(4,'Razones para vivir/morir',3,'Elija una de las opciones y presione "Continuar".',1,1);
-INSERT INTO polls_question VALUES(5,'Deseo de efectuar un intento activo de suicidio',4,'Elija una de las opciones y presione "Continuar".',1,1);
-INSERT INTO polls_question VALUES(6,'Intento pasivo de suicidio',5,'Elija una de las opciones y presione "Continuar".',1,1);
-INSERT INTO polls_question VALUES(7,'Dimensión temporal: Duración',6,'Elija una de las opciones y presione "Continuar".',1,2);
-INSERT INTO polls_question VALUES(8,'Dimensión temporal: frecuencia',7,'Elija una de las opciones y presione "Continuar".',1,2);
-INSERT INTO polls_question VALUES(9,'Actitud hacia la ideación/deseo',8,'Elija una de las opciones y presione "Continuar".',1,2);
-INSERT INTO polls_question VALUES(10,'Control sobre el deseo de actuación o acto suicida',9,'Elija una de las opciones y presione "Continuar".',1,2);
-INSERT INTO polls_question VALUES(11,'Barreras para el intento activo (por ejemplo: la familia, religión, posibilidad de lesión grave si se fracasa; irreversibilidad del intento)',10,'Elija una de las opciones y presione "Continuar".',1,2);
-INSERT INTO polls_question VALUES(12,'Razón del intento en cuestión',11,'Elija una de las opciones y presione "Continuar".',1,2);
-INSERT INTO polls_question VALUES(13,'Método: Especificidad/planeación',12,'Elija una de las opciones y presione "Continuar".',1,3);
-INSERT INTO polls_question VALUES(14,'Método: Disponibilidad/oportunidad',13,'Elija una de las opciones y presione "Continuar".',1,3);
-INSERT INTO polls_question VALUES(15,'Sensación de «capacidad» para llevar a cabo un intento',14,'Elija una de las opciones y presione "Continuar".',1,3);
-INSERT INTO polls_question VALUES(16,'Expectativas/anticipación del intento real',15,'Elija una de las opciones y presione "Continuar".',1,3);
-INSERT INTO polls_question VALUES(17,'Preparación real',16,'Elija una de las opciones y presione "Continuar".',1,4);
-INSERT INTO polls_question VALUES(18,'Nota de suicidio',17,'Elija una de las opciones y presione "Continuar".',1,4);
-INSERT INTO polls_question VALUES(19,'Actos finales de anticipación de la muerte (por ejemplo: seguros, testamento, donaciones)',18,'Elija una de las opciones y presione "Continuar".',1,4);
-INSERT INTO polls_question VALUES(20,'Engaño/encubrimiento del engaño',19,'Elija una de las opciones y presione "Continuar".',1,4);
-INSERT INTO polls_question VALUES(21,'Intentos previos de suicidio',20,'Elija una de las opciones y presione "Continuar".',1,5);
-INSERT INTO polls_question VALUES(22,'Intención de morir asociada con el último intento',21,'Elija una de las opciones y presione "Continuar".',1,5);
-
