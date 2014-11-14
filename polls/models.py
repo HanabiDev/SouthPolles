@@ -16,13 +16,18 @@ def validate_birthday(birth_date):
 		format_max_date = _date(max_date, "d \d\e b \d\e Y")
 		raise ValidationError(u'Sólo fechas entre %s y %s' % (format_min_date, format_max_date))
 
+class Departamento(models.Model):
+	nombre = models.CharField(max_length=40)
 
-# Create your models here.
+	def __unicode__(self):
+		return self.nombre
+
 class Municipio(models.Model):
-    nombre = models.CharField(max_length=40)
+	departamento = models.ForeignKey(Departamento)
+	nombre = models.CharField(max_length=40)
 
-    def __unicode__(self):
-    	return self.nombre
+	def __unicode__(self):
+		return self.nombre
 
 class Carreer(models.Model):
 	BASES = (
@@ -86,7 +91,9 @@ class Person(models.Model):
 	lastname = models.CharField(verbose_name=u'Apellidos (Opcional)', max_length=300, null=True, blank=True)
 	genre = models.CharField(verbose_name=u'Género', max_length=1, choices=GENRES)
 	birth_date = models.DateField(verbose_name=u'Fecha de nacimiento', validators=[validate_birthday])
+	origin_dept = models.ForeignKey(Departamento, verbose_name='Departamento de Origen')
 	origin_city = models.ForeignKey(Municipio, verbose_name=u'Ciudad de Origen')
+	actual_dept = models.ForeignKey(Departamento, verbose_name='Departamento de Residencia', related_name='depto_residencia')
 	actual_city = models.ForeignKey(Municipio,verbose_name=u'Ciudad de Residencia', related_name='residencia')
 	status = models.CharField(verbose_name=u'Estado civil (Opcional)', max_length=1, choices=STATUS, null=True, blank=True)
 	children = models.CharField(verbose_name=u'Hijos (Opcional)', max_length=1, choices=CHILDREN, null=True, blank=True)
@@ -98,6 +105,8 @@ class Person(models.Model):
 	code = models.CharField(verbose_name=u'Código (Opcional)', max_length=20, null=True, blank=True)
 	base = models.CharField(verbose_name=u'Sede', max_length=1, choices=BASES)
 
+	def __unicode__():
+		return self.name+" "+self.lastname
 	class Meta:
 		verbose_name = u'Persona'
 		verbose_name_plural = u'Personas'

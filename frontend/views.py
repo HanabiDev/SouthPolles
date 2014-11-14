@@ -5,7 +5,7 @@ from forms import PersonForm
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from models import Application, Answer
-from polls.models import Person, Poll, PollSection, Option, Municipio
+from polls.models import Person, Poll, PollSection, Option, Municipio, Departamento
 from django.views.decorators.cache import cache_control
 
 
@@ -14,6 +14,14 @@ from django.views.decorators.cache import cache_control
 def home(request):
 	request.session.flush()
 	return render_to_response('index.html', request.session)
+
+def get_cities(request):
+	dept_id = request.GET.get('dept_id')
+	muns = Municipio.objects.filter(departamento_id=dept_id)
+
+	return render_to_response('cities.html', {'muns':muns})
+
+
 
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def register_person(request):

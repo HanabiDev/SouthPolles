@@ -12,4 +12,5 @@ urlpatterns = patterns('',
     url(r'^guardar/(?P<section_id>\d+)/$', 'frontend.views.save_section', name='save_section' ),
     url(r'^diligenciamiento/final/$', 'frontend.views.thanks', name='thanks'),
     url(r'^dispose-info/$', 'frontend.views.dispose_info', name='dispose_info'),
+    url(r'^get_cities/$', 'frontend.views.get_cities', name='filter_cities')
 )

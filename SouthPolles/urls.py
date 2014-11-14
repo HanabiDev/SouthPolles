@@ -11,6 +11,6 @@ urlpatterns = patterns('',
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^builder_room/', include(admin.site.urls)),
     url(r'^redactor/', include('redactor.urls')),
-
+    url(r'^report', 'reports.views.create_report')
 
 )
