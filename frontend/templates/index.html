@@ -2,17 +2,39 @@
 {%block title%}Inicio{% endblock%}
 {% block content %}
     
-    <div class="row  pad-top" style="margin-top:200px;">
+    <div class="row  pad-top" style="margin-top:100px;">
 
         <div class="col-md-8 col-md-offset-2 col-sm-6 col-sm-offset-3 col-xs-10 col-xs-offset-1">
-            <div class="panel panel-primary text-center">
-                <h1>
-                    Bienvenido!
-                </h1>
+            <div class="panel panel-primary text-justify" style="padding:20px;">
                 <div class="panel-body">
-                    <a href="{% url "registry" %}" class="btn btn-lg btn-primary">
-                        Registrarse
-                    </a>
+                    <h3 class="text-center">TEST DE IDEACIÓN SUICIDA BECK</h3>
+
+                    <p>
+                        La conducta suicida se genera  básicamente por la incapacidad de afrontar situaciones difíciles y de reto para el ser humano.  La educación básica, el entorno familiar y social, la autoestima, son factores determinantes en la formación del carácter del ser. Los retos desde temprana edad, la exposición al fracaso, son  maestros que forjan personas  con la capacidad de afrontar todo tipo de situaciones en su vida.      
+                    </p>
+                    <p>
+                        Cuando esto no se da por diversas razones como: la educación laxa,  falta patrones disciplinarios, situaciones de paridad con los padres que generan autonomía y autosuficiencia imaginaria, la carencia de referentes, los  aprobación continua a toda acción; se hace necesario un trabajo de sensibilización, motivación y orientación dirigido a la población en riesgo y al entorno que hace parte de su diario vivir. Por lo anterior es importante  la comunidad educativa ya que se presta para realizar acciones preventivas.
+                    </p>
+
+                    <h4>Objetivos</h4>
+     
+                    <ol>
+                        <li>
+                            Identificar ideación suicida en una muestra de la población universitaria (funcionarios, docentes, estudiantes) por medio de un tamizaje.               
+                        </li>
+                        <li>
+                            Promover en un grupo de personas (muestra) de la comunidad universitaria,  el amor por  la vida y desarrollo de habilidades para manejar adecuadamente situaciones de choque con el fin de prevenir conductas  de riesgo relacionadas con el suicidio, por medio de talleres que logren la participación de toda la población asistente.   
+                        </li>
+                        <li>
+                            Recomendar estrategias para la implementación de programas futuros que den continuidad a este.
+                        </li>
+                    </ol> 
+                    <br>
+                    <p class="text-right">
+                        <a href="{% url "registry" %}" class="btn btn-lg btn-primary">
+                            Ir a la prueba <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
