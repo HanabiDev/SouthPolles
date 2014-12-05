@@ -80,7 +80,6 @@ INSTALLED_APPS = (
     'polls',
     'frontend',
     'reports',
-    'easy_pdf',
 )
 
 MIDDLEWARE_CLASSES = (
