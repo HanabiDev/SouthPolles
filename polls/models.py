@@ -105,8 +105,6 @@ class Person(models.Model):
 	code = models.CharField(verbose_name=u'Código (Opcional)', max_length=20, null=True, blank=True)
 	base = models.CharField(verbose_name=u'Sede', max_length=1, choices=BASES)
 
-	def __unicode__():
-		return self.name+" "+self.lastname
 	class Meta:
 		verbose_name = u'Persona'
 		verbose_name_plural = u'Personas'
@@ -115,7 +113,6 @@ class Person(models.Model):
 
 class Poll(models.Model):
 	title = models.CharField(verbose_name=u'Título', max_length=255, unique=True)
-	#author = models.
 	start_date = models.DateTimeField(verbose_name=u'Fecha de Inicio')
 	end_date = models.DateTimeField(verbose_name=u'Fecha de Finalización')
 	description = RedactorField(verbose_name=u'Descripción', blank=True)

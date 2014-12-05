@@ -1,0 +1,132 @@
+{% extends "reports_base.html" %}
+{% load static %}
+
+{% block title %}
+	{% if editing %}
+		Editar Reporte
+	{% else %}
+		Crear Reporte
+	{% endif %}
+{% endblock %}
+
+{% block extras %}
+	<link rel="stylesheet" href="{% static "redactor/css/redactor.css" %}">
+	<script src="{% static "redactor/redactor.js" %}"></script>
+{% endblock %}
+
+<link rel="stylesheet" href="{% static "redactor/css/redactor.css" %}">
+
+{% block content %}
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			{% if editing %}
+				<h3>Editar Reporte</h3>
+			{% else %}
+				<h3>Crear Reporte</h3>
+			{% endif %}
+		</div>
+	 	<div class="panel-body">
+	  		<div class="row">
+	  			<div class="col-md-1"></div>
+	  			<div class="col-xs-12 col-md-6">
+	  				<form role="form" action="." method="POST">
+						{% csrf_token %}
+
+						<input type="hidden" name="user_id" value="{{user}}" />
+
+						{% for field in form %}
+							<div class="form-group {% if field.errors %} has-error{% endif %}">
+								{% if not form.this_is_the_login_form.errors %}
+								<label class="control-label required" for="{{field.field.id}}">
+									{{field.label}}:
+								</label>
+								{% endif %}
+
+								{% if field.errors %}
+									<span class="help-inline text-danger">
+										{{field.errors}}
+									</span>
+								{% endif %}
+
+								{% if not field.name == "description" %}
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										{{ field }}
+									</div>
+								{% else %}
+									{{field}}
+								{% endif %}
+
+							</div>
+						{% endfor %}
+
+						<br><br>
+						<div class="form-group" style="text-align:right;">
+							<a href="{% url "report_home" %}" class="btn btn-danger">
+								Cancelar
+							</a>
+							<button type="submit" class="btn btn-success">
+								{% if editing %} Guardar cambios
+	    						{% else %} Crear Reporte {% endif %}
+	    					</button>
+						</div>
+					</form>
+	  			</div>
+	  			{% if editing %}
+		  			<div class="col-xs-12 col-xs-5">
+		  				<div class="panel panel-default">
+		  				  <div class="panel-heading text-right">
+		  				  	<a class="btn btn-primary" href="{% url "add_section" report.id %}">Agregar una sección</a>
+		  				  </div>
+						  <div class="panel-body">
+					  		<div class="table-responsive">
+								<table class="table">
+							      <thead>
+							        <tr>
+							          <th>Título</th>
+							          <th>Variable</th>
+							          <th class="text-center">Eliminar</th>
+							        </tr>
+							      </thead>
+							      <tbody>
+							      	{% for section in report.reportsection_set.all %}
+								        <tr>
+								          <td>
+								          	<a href="{% url "edit_section" report.id section.id %}">
+								          		{{section.title}}
+								          	</a>
+								          </td>
+								          <td>{{section.get_attribute_display}}</td>
+								          <td class="text-center">
+								          	<a href="{% url "delete_section" report.id section.id %}">
+								          		<span class="text-danger glyphicon glyphicon-trash"></span>
+								          	</a>
+								          </td>
+								        </tr>
+								    {% empty %}
+								    	<tr>
+								          <td colspan="6" class="text-center">
+								          	<p class="alert alert-info">
+								          		No se han agregado secciones
+								          	</p>
+								          	<p>
+								          		<a class="btn btn-primary" href="{% url "add_section" report.id %}">
+								          			<b>Agregar una sección</b>
+							          			</a>
+								          	</p>
+								          </td>
+								        </tr>
+							        {% endfor %}
+							      </tbody>
+							  </table>
+							</div>
+						  </div>
+						</div>
+		  			</div>
+	  			{% endif %}
+	  		</div>
+	  	</div>
+  	</div>
+{% endblock %}

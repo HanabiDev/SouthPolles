@@ -1,0 +1,126 @@
+{% load static%}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <!--[if IE]>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+        
+        <title>{%block title%}Generador de Reportes{% endblock%}</title>
+
+        <link rel="shortcut icon" href="{% static "images/favicon.png"%}" type="image/png" />
+
+        <!-- BOOTSTRAP CORE STYLE CSS -->
+        <link href="{% static "css/bootstrap.css" %}" rel="stylesheet" />
+        <!-- FONTAWESOME STYLE CSS -->
+        <link href="{% static "css/font-awesome.min.css" %}" rel="stylesheet" />
+        <!-- CUSTOM STYLE CSS -->
+        <link href="{% static "css/style.css" %}" rel="stylesheet" />
+
+        <link rel="stylesheet" href="{% static "css/print.css" %}" type="text/css" media="print" />
+        
+        <!-- GOOGLE FONT-->         
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>        
+
+        <!-- CORE JQUERY  -->
+        <script src="{% static "plugins/jquery-1.10.2.js" %}"></script>
+        <!-- BOOTSTRAP SCRIPTS  -->
+        <script src="{% static "plugins/bootstrap.js" %}"></script>
+        <script src="{% static "plugins/chosen.jquery.min.js" %}"></script>
+
+        <link href="/static/css/chosen.min.css" type="text/css" media="all" rel="stylesheet">
+
+        {% block extras %}
+        {% endblock %}
+
+        <style type="text/css">
+        html, body{
+            height: 100%;
+        }
+        body{
+            overflow-x:hidden;
+            padding-top: 80px;
+        }
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="container main_cont" style="min-height:70%; margin-top:5px;">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>Iniciar sesión</h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3"></div>
+                        <div class="col-xs-12 col-md-6">
+                            <form role="form" action="." method="POST">
+                                {% csrf_token %}
+
+                                <input type="hidden" name="user_id" value="{{user}}" />
+
+                                {% for field in form %}
+                                    <div class="form-group {% if field.errors %} has-error{% endif %}">
+                                        {% if not form.this_is_the_login_form.errors %}
+                                        <label class="control-label required" for="{{field.field.id}}">
+                                            {{field.label}}:
+                                        </label>
+                                        {% endif %}
+
+                                        {% if field.errors %}
+                                            <span class="help-inline text-danger">
+                                                {{field.errors}}
+                                            </span>
+                                        {% endif %}
+
+                                        {% if not field.name == "description" %}
+                                            <div class="input-group">
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                                </span>
+                                                {{ field }}
+                                            </div>
+                                        {% else %}
+                                            {{field}}
+                                        {% endif %}
+
+                                    </div>
+                                {% endfor %}
+
+                                <br><br>
+                                <div class="form-group" style="text-align:right;">
+                                    <a href="{% url "home" %}" class="btn btn-danger">
+                                        Cancelar
+                                    </a>
+                                    <button type="submit" class="btn btn-success">
+                                        Iniciar Sesión
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.input-group').find('input').addClass('form-control');
+            $('.input-group').css('width', '100%').find('select').siblings('span').remove();
+            $("#id_questions").chosen();
+        });
+    </script>
+
+    {% block script %}{% endblock%}
+</html>
+
+
+

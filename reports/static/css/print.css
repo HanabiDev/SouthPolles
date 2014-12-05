@@ -1,0 +1,37 @@
+
+body{
+	overflow-x: visible !important;
+	padding: 0 !important;
+}
+
+#right_col, #top_menu, .org, 
+.indicators, .ad, .related, 
+.fat-menu, .fb-comments, .logo:before,
+.media_section{
+	display: none !important;
+}
+
+.main_cont{
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+p{
+	max-width: 78% !important;
+	border: none !important;
+	overflow: visible;
+	page-break-before: auto !important; 
+    page-break-after: auto !important;
+    page-break-inside: avoid !important;
+}
+
+.col-md-1{display: none !important;}
+
+table.jqplot-table-legend{
+	top: -2px;
+	background: white !important;
+}
+
+.rep_content{
+	padding:0 50px 0 50px !important;
+}

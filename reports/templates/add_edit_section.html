@@ -1,0 +1,81 @@
+{% extends "reports_base.html" %}
+{% load static %}
+
+{% block title %}
+	{% if editing %}
+		Editar Sección
+	{% else %}
+		Crear Sección
+	{% endif %}
+{% endblock %}
+
+{% block extras %}
+	<link rel="stylesheet" href="{% static "redactor/css/redactor.css" %}">
+	<script src="{% static "redactor/redactor.js" %}"></script>
+{% endblock %}
+
+<link rel="stylesheet" href="{% static "redactor/css/redactor.css" %}">
+
+{% block content %}
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			{% if editing %}
+				<h3>Editar Sección</h3>
+			{% else %}
+				<h3>Crear Sección</h3>
+			{% endif %}
+		</div>
+	 	<div class="panel-body">
+	  		<div class="row">
+	  			<div class="col-md-1"></div>
+	  			<div class="col-xs-12 col-md-6">
+	  				<form role="form" action="." method="POST">
+						{% csrf_token %}
+
+						<input type="hidden" id="id_report" name="report" value="{{report_id}}" />
+
+						{% for field in form %}
+							<div class="form-group {% if field.errors %} has-error{% endif %}">
+								{% if not field.name == "report" %}
+								<label class="control-label required" for="{{field.field.id}}">
+									{{field.label}}:
+								</label>
+								{% endif %}
+
+								{% if field.errors %}
+									<span class="help-inline text-danger">
+										{{field.errors}}
+									</span>
+								{% endif %}
+
+								{% if field.name == "report" %}
+								{% elif not field.name == "description" %}
+									<div class="input-group">
+										<span class="input-group-addon">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</span>
+										{{ field }}
+									</div>						
+								{% else %}
+									{{field}}
+								{% endif %}
+
+							</div>
+						{% endfor %}
+
+						<br><br>
+						<div class="form-group" style="text-align:right;">
+							<a href="{% url "edit_report" report_id %}" class="btn btn-danger">
+								Cancelar
+							</a>
+							<button type="submit" class="btn btn-success">
+								{% if editing %} Guardar cambios
+	    						{% else %} Crear Sección {% endif %}
+	    					</button>
+						</div>
+					</form>
+	  			</div>
+	  		</div>
+	  	</div>
+  	</div>
+{% endblock %}

@@ -79,6 +79,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'polls',
     'frontend',
+    'reports',
+    'easy_pdf',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -125,3 +127,5 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.request',
 )
+
+REDACTOR_OPTIONS = { 'minHeight': 300}

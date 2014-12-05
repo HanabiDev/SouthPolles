@@ -1,0 +1,58 @@
+{% extends "reports_base.html" %}
+
+{% block content %}
+
+	<div class="panel panel-default">
+	  <div class="panel-body">
+  		<div class="table-responsive">
+			<table class="table">
+		      <thead>
+		        <tr>
+		          <th>#</th>
+		          <th>Título</th>
+		          <th>Autor</th>
+		          <th>Fecha</th>
+		          <th class="text-center">Agregar observaciones</th>
+		          <th class="text-center">Eliminar</th>
+		        </tr>
+		      </thead>
+		      <tbody>
+		      	{% for report in reports %}
+			        <tr>
+			          <td>{{report.id}}</td>
+			          <td>
+			          	<a href="{% url "edit_report" report.id %}">{{report.title}}</a>
+			          </td>
+			          <td>{{report.expert}}</td>
+			          <td>{{report.report_date}}</td>
+			          <th class="text-center">
+			          	<a href="{% url "report_observ" report.id %}">
+			          		<span class="glyphicon glyphicon-eye-open"></span>
+			          	</a>
+			          </th>
+			          <td class="text-center">
+			          	<a href="{% url "delete_report" report.id %}">
+			          		<span class="text-danger glyphicon glyphicon-trash"></span>
+			          	</a>
+			          </td>
+			        </tr>
+			    {% empty %}
+			    	<tr>
+			          <td colspan="6" class="text-center">
+			          	<p class="alert alert-info">
+			          		No se han generado reportes
+			          	</p>
+			          	<p>
+			          		<a class="btn btn-primary" href="{% url "create_report" %}">
+			          			<b>Generar un nuevo reporte</b>
+		          			</a>
+			          	</p>
+			          </td>
+			        </tr>
+		        {% endfor %}
+		      </tbody>
+		  </table>
+		</div>
+	  </div>
+	</div>
+{% endblock %}

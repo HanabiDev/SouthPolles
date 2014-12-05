@@ -21,8 +21,6 @@ def get_cities(request):
 
 	return render_to_response('cities.html', {'muns':muns})
 
-
-
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def register_person(request):
 	if request.method == 'GET':
