@@ -102,10 +102,20 @@
 {% endblock %}
 
 {% block script %}
+
 	<script type="text/javascript">
 
-		var get_graph = function(section_id, graph_data, x_label){
+	$.jqplot.LabelFormatter = function(format, val) {
+        label = val + '(' + (val / totalMarkers * 100).toFixed(2) + '%)';
+        return label;
+    };
 
+    $.jqplot.config.enablePlugins = true;
+
+    var totalMarkers = {{report.poll.application_set.count}};
+
+		var get_graph = function(section_id, graph_data, x_label){
+			
 		    var ticks = graph_data.ticks;
 		    var series = []
 
@@ -118,7 +128,12 @@
 		        seriesDefaults:{
 		            renderer:$.jqplot.BarRenderer,
 		            rendererOptions: {fillToZero: true, barMargin: 50,},
-		            pointLabels: {show: true, hideZeros:true}
+		            pointLabels: {
+		            	show: true, 
+		            	hideZeros:true, 
+		            	formatString: '%s (%%)', 
+		            	formatter: $.jqplot.LabelFormatter
+		            }
 		        },
 
 		        grid: {

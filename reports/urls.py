@@ -14,4 +14,5 @@ urlpatterns = patterns('',
     url(r'^editar-reporte/(?P<report_id>\d+)/eliminar-seccion/(?P<section_id>\d+)/$', 'reports.views.delete_section', name='delete_section'),
     url(r'^eliminar-reporte/(?P<report_id>\d+)/$', 'reports.views.delete_report', name='delete_report'),
     url(r'^agregar-observaciones/(?P<report_id>\d+)/$', 'reports.views.report_observ', name='report_observ'),
+    url(r'^exportar/$', 'reports.views.export_data', name='export_data'),
 )

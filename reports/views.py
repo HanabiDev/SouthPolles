@@ -1,6 +1,6 @@
 #encoding: utf-8
 
-from django.shortcuts import redirect, render_to_response
+from django.shortcuts import redirect, render_to_response, HttpResponse
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
 
@@ -231,5 +231,46 @@ def get_section_report(section):
 	elif section.attribute == 'base':
 		return get_stats_by_base(section.questions.all())
 
+def export_data(request):
+    import openpyxl
+    from openpyxl.cell import get_column_letter
+
+    response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = 'attachment; filename=resultados_encuesta.xlsx'
+    wb = openpyxl.Workbook()
+    ws = wb.get_active_sheet()
+    ws.title = u"Datos-Esc. de ideación suicida"
+
+    row_num = 0
+
+    columns = [
+        (u"Encuesta #", 15),
+    ]+[(u"Pregunta %s" % (question), 20) for question in Question.objects.all().values_list('index').order_by('index')]
+
+    print columns
+
+
+    for col_num in xrange(len(columns)):
+        c = ws.cell(row=row_num + 1, column=col_num + 1)
+        c.value = columns[col_num][0]
+        # set column width
+        ws.column_dimensions[get_column_letter(col_num+1)].width = columns[col_num][1]
+
+    queryset = Answer.objects.filter(application_id=1)
+
+    for obj in queryset:
+        row_num += 1
+        row = [
+            obj.pk,
+            obj.option.question.text,
+            obj.option.text,
+        ]
+        for col_num in xrange(len(row)):
+            c = ws.cell(row=row_num + 1, column=col_num + 1)
+            c.value = row[col_num]
+            #c.style.alignment.wrap_text = True
+
+    wb.save(response)
+    return response
 
 
