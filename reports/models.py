@@ -34,6 +34,8 @@ class ReportSection(models.Model):
 	class Meta:
 		unique_together =  ("report", "attribute")
 
+"""
 class ReportSectionParam(models.Model):
 	section = models.ForeignKey(ReportSection)
 	param_string = models.TextField()
+"""

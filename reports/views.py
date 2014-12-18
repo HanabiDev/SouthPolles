@@ -4,7 +4,7 @@ from django.shortcuts import redirect, render_to_response, HttpResponse
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
 
-from models import Report, ReportSection, ReportSectionParam
+from models import Report, ReportSection
 from forms import ReportForm, ReportSectionForm
 
 from polls.models import Person, Question, Carreer
