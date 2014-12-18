@@ -61,8 +61,91 @@ def get_stats_by_genre(questions):
 	return question_stats
 
 
-def get_stats_by_birth(questions):
-	pass
+def get_stats_by_birth(questions, id_ranges):
+	question_stats = []
+
+	clean_ids = []
+	for ids in id_ranges:
+		ids = [id[0] for id in ids]
+		clean_ids.append(ids)
+		
+	range1_answers = Answer.objects.filter(application__person__id__in=clean_ids[0])
+	range2_answers = Answer.objects.filter(application__person__id__in=clean_ids[1])
+	range3_answers = Answer.objects.filter(application__person__id__in=clean_ids[2])
+	range4_answers = Answer.objects.filter(application__person__id__in=clean_ids[3])
+
+	for question in questions:
+		series = [serie[0] for serie in question.option_set.all().values_list('text').order_by('index')]
+
+		range1_count = range1_answers.filter(
+			option__question=question
+		).order_by('index').values_list('option__text').order_by().annotate(Count('option__text'))
+
+		range2_count = range2_answers.filter(
+			option__question=question
+		).order_by('index').values_list('option__text').order_by().annotate(Count('option__text'))
+
+		range3_count = range3_answers.filter(
+			option__question=question
+		).order_by('index').values_list('option__text').order_by().annotate(Count('option__text'))
+		
+		range4_count = range4_answers.filter(
+			option__question=question
+		).order_by('index').values_list('option__text').order_by().annotate(Count('option__text'))
+
+		range1_count = dict(range1_count)
+		range2_count = dict(range2_count)
+		range3_count = dict(range3_count)
+		range4_count = dict(range4_count)
+
+		for label in series:
+			if not range1_count.get(label):
+				range1_count[label]=0
+
+		for label in series:
+			if not range2_count.get(label):
+				range2_count[label]=0
+
+		for label in series:
+			if not range3_count.get(label):
+				range3_count[label]=0
+
+		for label in series:
+			if not range4_count.get(label):
+				range4_count[label]=0
+
+		range1_count = collections.OrderedDict(sorted(range1_count.items()))
+		range2_count = collections.OrderedDict(sorted(range2_count.items()))
+		range3_count = collections.OrderedDict(sorted(range3_count.items()))
+		range4_count = collections.OrderedDict(sorted(range4_count.items()))
+		
+		range1_values = []
+		range2_values = []
+		range3_values = []
+		range4_values = []
+
+		for key,value in range1_count.iteritems():
+			range1_values.append(value)
+
+		for key,value in range2_count.iteritems():
+			range2_values.append(value)
+
+		for key,value in range3_count.iteritems():
+			range3_values.append(value)
+
+		for key,value in range4_count.iteritems():
+			range4_values.append(value)
+
+		s1 = [range1_values[0],range2_values[0],range3_values[0],range4_values[0]]
+		s2 = [range1_values[1],range2_values[1],range3_values[1],range4_values[1]]
+		s3 = [range1_values[2],range2_values[2],range3_values[2],range4_values[2]]
+
+		question_stats.append({
+			'question_id':question.id,
+			'question': str(question.index)+": "+question.text,
+			'series':series, 'ticks':['Entre 15 y 20', 'Entre 20 y 25', 'Entre 25 y 30', 'Más de 30'], 'data':[s1, s2, s3]
+		})
+	return question_stats
 
 def get_stats_by_status(questions):
 

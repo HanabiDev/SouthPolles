@@ -234,15 +234,24 @@ def report_observ(request, report_id):
 		context_instance=RequestContext(request)
 	)
 
+from datetime import date
 def get_section_report(section):
 
 	if section.attribute == 'genre':
 		return get_stats_by_genre(section.questions.all())
-	elif section.attribute == 'birth_date':
-		return get_stats_by_birth(section.questions.all())
+	elif section.attribute == 'birth_date': 
+
+		range1 = Person.objects.filter(birth_date__range=(date(1994,1,1),date(1998,12,31))).values_list('id')
+		range2 = Person.objects.filter(birth_date__range=(date(1989,1,1),date(1993,12,31))).values_list('id')
+		range3 = Person.objects.filter(birth_date__range=(date(1984,1,1),date(1988,12,31))).values_list('id')
+		range4 = Person.objects.filter(birth_date__lt=date(1984,1,1)).values_list('id')
+
+		ranges = tuple([range1,range2,range3,range4])
+
+		return get_stats_by_birth(section.questions.all(), ranges)
+
 	elif section.attribute == '':
 		pass
-
 	elif section.attribute == 'career':
 		carreer_ids = Person.objects.values_list(
 			'career_id'
