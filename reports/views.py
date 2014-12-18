@@ -244,7 +244,7 @@ def get_section_report(section):
 		pass
 
 	elif section.attribute == 'career':
-		get_stats_by_carreer(section.questions.all())
+		return get_stats_by_carreer(section.questions.all(), (36,9,21,5,25))
 
 	elif section.attribute == 'children':
 		return get_stats_by_children(section.questions.all())

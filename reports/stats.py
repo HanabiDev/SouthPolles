@@ -259,14 +259,15 @@ def get_stats_by_role(questions):
 
 	return question_stats	
 
-def get_stats_by_carreer(questions):
+def get_stats_by_carreer(questions, carreers):
 	question_stats = []
 
 	carreer_answers = []
 	
-	for carreer in (36,9,21,5,25):
+	for carreer in carreers:
 		carreer_answers.append(Answer.objects.filter(application__person__career=carreer))
 
+	print carreer_answers
 
 	for question in questions:
 		series = [serie[0] for serie in question.option_set.all().values_list('text').order_by('index')]
@@ -301,8 +302,10 @@ def get_stats_by_carreer(questions):
 		question_stats.append({
 			'question_id':question.id,
 			'question': str(question.index)+": "+question.text,
-			'series':series, 'ticks':range(1,13), 'data':[s1, s2, s3]
+			'series':series, 'ticks':(5,26,1,7,24), 'data':[s1, s2, s3]
 		})
+
+	print question_stats
 
 	return question_stats
 
