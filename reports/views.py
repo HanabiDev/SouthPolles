@@ -244,7 +244,13 @@ def get_section_report(section):
 		pass
 
 	elif section.attribute == 'career':
-		return get_stats_by_carreer(section.questions.all(), (36,9,21,5,25))
+		carreer_ids = Person.objects.values_list(
+			'career_id'
+		).annotate(counter=Count('career_id')).order_by('-counter')[:5]
+
+		ids = tuple(id[0] for id in carreer_ids)
+
+		return get_stats_by_carreer(section.questions.all(), ids)
 
 	elif section.attribute == 'children':
 		return get_stats_by_children(section.questions.all())

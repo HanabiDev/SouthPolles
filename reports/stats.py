@@ -1,6 +1,7 @@
 #encoding: utf-8
 
 from frontend.models import Answer
+from polls.models import Carreer
 from django.db.models import Count
 import json
 
@@ -263,11 +264,12 @@ def get_stats_by_carreer(questions, carreers):
 	question_stats = []
 
 	carreer_answers = []
-	
-	for carreer in carreers:
-		carreer_answers.append(Answer.objects.filter(application__person__career=carreer))
+	carreer_labels = []
 
-	print carreer_answers
+	for carreer in carreers:
+		label = Carreer.objects.filter(id=carreer).values_list('nombre')
+		carreer_labels.append(label[0])
+		carreer_answers.append(Answer.objects.filter(application__person__career=carreer))
 
 	for question in questions:
 		series = [serie[0] for serie in question.option_set.all().values_list('text').order_by('index')]
@@ -299,13 +301,13 @@ def get_stats_by_carreer(questions, carreers):
 			s2.append(value2)
 			s3.append(value3)
 
+		print carreer_labels
+
 		question_stats.append({
 			'question_id':question.id,
 			'question': str(question.index)+": "+question.text,
-			'series':series, 'ticks':(5,26,1,7,24), 'data':[s1, s2, s3]
+			'series':series, 'ticks':carreer_labels, 'data':[s1, s2, s3]
 		})
-
-	print question_stats
 
 	return question_stats
 
