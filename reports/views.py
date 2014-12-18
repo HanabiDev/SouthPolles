@@ -4,10 +4,10 @@ from django.shortcuts import redirect, render_to_response, HttpResponse
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
 
-from models import Report, ReportSection
+from models import Report, ReportSection, ReportSectionParam
 from forms import ReportForm, ReportSectionForm
 
-from polls.models import Person, Question
+from polls.models import Person, Question, Carreer
 from stats import *
 
 from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
@@ -148,9 +148,42 @@ def add_section(request, report_id):
 		form = ReportSectionForm(request.POST)
 		if form.is_valid():
 			new_section = form.save()
+
+			#if new_section.attribute == 'career':
+			#	return redirect(reverse('add_params', args=(new_section.id,1,)))
+
 			return redirect(reverse('edit_report', args=(report_id,)))
 
 		return render_to_response('add_edit_section.html', {'form': form, 'report_id':report_id}, context_instance=RequestContext(request))
+
+"""
+def add_params(request, section_id, param_id):
+	
+	if request.method == 'GET':
+		data = {}
+		if param_id == '1':
+			carreers = Carreer.objects.all()
+			data = {'label':'Escoja las carreras a mostrar', 'options':carreers}
+			print data
+
+		return render_to_response('add_edit_params.html', data, context_instance=RequestContext(request))
+
+	if request.method == 'POST':
+		param_string = ""
+
+		for param in request.POST.getlist('params'):
+			param_string = param_string + "," + param
+			print param
+
+		print param_string
+
+		new_param = ReportSectionParam(
+			section=ReportSection.objects.get(id=section_id),
+			param_string=param_string
+		)
+
+		return render_to_response('add_edit_params.html', , context_instance=RequestContext(request))
+"""
 
 @login_required(login_url='login')
 def edit_section(request, report_id, section_id):
@@ -210,8 +243,8 @@ def get_section_report(section):
 	elif section.attribute == '':
 		pass
 
-	elif section.attribute == '':
-		pass
+	elif section.attribute == 'career':
+		get_stats_by_carreer(section.questions.all())
 
 	elif section.attribute == 'children':
 		return get_stats_by_children(section.questions.all())

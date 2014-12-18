@@ -7,15 +7,13 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('polls', '0001_initial'),
         ('reports', '0001_initial'),
     ]
 
     operations = [
-        migrations.AddField(
+        migrations.RenameField(
             model_name='reportsection',
-            name='questions',
-            field=models.ManyToManyField(to='polls.Question', verbose_name='Preguntas'),
-            preserve_default=True,
+            old_name='sec_questions',
+            new_name='questions',
         ),
     ]

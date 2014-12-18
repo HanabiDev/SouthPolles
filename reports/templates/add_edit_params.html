@@ -1,0 +1,18 @@
+{% extends "reports_base.html" %}
+
+
+{% block content %}
+	<form class="col-xs-12 col-sm-8 col-md-8" action="." method="POST">
+		<label>{{label}}</label>
+		{%csrf_token%}
+		<p>
+			<select name="params" id="params" multiple="true" required>
+				{% for option in options %}
+					<option>{{option}}</option>
+				{% endfor %}
+			</select>
+		</p>
+		<input class="btn btn-success" type="submit" value="Guardar"/>
+	</form>
+
+{% endblock %}

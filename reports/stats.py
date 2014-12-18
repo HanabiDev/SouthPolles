@@ -259,8 +259,52 @@ def get_stats_by_role(questions):
 
 	return question_stats	
 
-def get_stats_by_carreer(questions, carreers):
-	pass
+def get_stats_by_carreer(questions):
+	question_stats = []
+
+	carreer_answers = []
+	
+	for carreer in (36,9,21,5,25):
+		carreer_answers.append(Answer.objects.filter(application__person__career=carreer))
+
+
+	for question in questions:
+		series = [serie[0] for serie in question.option_set.all().values_list('text').order_by('index')]
+
+		s1 = []
+		s2 = []
+		s3 = []
+
+		for index, answers in enumerate(carreer_answers):
+			carreer_count = answers.filter(
+				option__question=question
+			).order_by('index').values_list('option__text').order_by().annotate(Count('option__text'))
+
+		
+			carreer_count = dict(carreer_count)
+
+			for label in series:
+				if not carreer_count.get(label):
+					carreer_count[label]=0
+
+			carreer_count = collections.OrderedDict(sorted(carreer_count.items()))
+			carreer_values = []
+
+			for key,value in carreer_count.iteritems():
+				carreer_values.append(value)
+
+			value1, value2, value3 = carreer_values
+			s1.append(value1)
+			s2.append(value2)
+			s3.append(value3)
+
+		question_stats.append({
+			'question_id':question.id,
+			'question': str(question.index)+": "+question.text,
+			'series':series, 'ticks':range(1,13), 'data':[s1, s2, s3]
+		})
+
+	return question_stats
 
 def get_stats_by_semester(questions):
 	question_stats = []

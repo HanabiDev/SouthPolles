@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
                 ('report_date', models.DateField(auto_now=True, verbose_name='Fecha')),
                 ('expert', models.CharField(max_length=200, verbose_name='Autor')),
                 ('description', redactor.fields.RedactorField(verbose_name='Descripci\xf3n')),
+                ('poll', models.ForeignKey(verbose_name='Prueba', to='polls.Poll')),
             ],
             options={
             },
@@ -32,8 +33,19 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=500, verbose_name='T\xedtulo de la secci\xf3n')),
                 ('attribute', models.CharField(max_length=50, verbose_name='Variable', choices=[(b'genre', b'G\xc3\xa9nero'), (b'birth_date', b'Edad'), (b'origin_dept', b'Departamento de Origen'), (b'actual_dept', b'Departamento de Residencia'), (b'origin_city', b'Ciudad de Origen'), (b'actual_city', b'Ciudad de Residencia'), (b'status', b'Estado civil'), (b'children', b'Hijos'), (b'stratum', b'Estrato'), (b'role', b'Cargo'), (b'career', b'Programa'), (b'semester', b'Semestre'), (b'base', b'Sede')])),
                 ('diagnostic', redactor.fields.RedactorField(verbose_name='Diagn\xf3stico')),
-                ('questiones', models.ManyToManyField(to='polls.Question', verbose_name='Preguntas')),
                 ('report', models.ForeignKey(verbose_name='Reporte', to='reports.Report')),
+                ('sec_questions', models.ManyToManyField(to='polls.Question', verbose_name='Preguntas')),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='ReportSectionParam',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('param_string', models.TextField()),
+                ('section', models.ForeignKey(to='reports.ReportSection')),
             ],
             options={
             },
