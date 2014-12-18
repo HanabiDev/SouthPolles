@@ -301,8 +301,6 @@ def get_stats_by_carreer(questions, carreers):
 			s2.append(value2)
 			s3.append(value3)
 
-		print carreer_labels
-
 		question_stats.append({
 			'question_id':question.id,
 			'question': str(question.index)+": "+question.text,
